@@ -69,7 +69,7 @@ The script computes metrics and outputs ranked categories.
 
 All metrics are aggregated on **category × placement_format**.
 
-## ⚖Weight Model (from strategy analysis)
+## Weight Model (from strategy analysis)
 The final score uses weights aligned with content-focused strategy:
 - CTR — 0.35
 - CVR — 0.25
