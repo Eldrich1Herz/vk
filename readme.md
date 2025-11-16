@@ -1,8 +1,8 @@
-# VK S-Commerce Content Potential Analysis
+# Анализ контентного потенциала VK S-commerce
 
-This project analyzes the content potential of products in VK's social commerce ecosystem. Using four CSV datasets from the test launch, the script calculates engagement, conversion, revenue, and author reward metrics to rank product categories and formats.
+Этот проект анализирует контентный потенциал товаров в экосистеме социальной коммерции VK. Используя четыре CSV-набора данных из тестового запуска, скрипт рассчитывает метрики вовлеченности, конверсии, выручки и вознаграждения авторов для ранжирования товарных категорий и форматов.
 
-## Project Structure
+## Структура проекта
 ```
 project/
   ├── data/
@@ -15,7 +15,7 @@ project/
   └── README.md
 ```
 
-## Input Data
+## Входные данные
 
 ### df_offers.csv
 - hash_offer_id
@@ -49,35 +49,35 @@ project/
 - is_published
 - published_at
 
-## Purpose
-Identify:
-- Key categories with the highest content potential
-- Formats (post/clip) with the best performance
-- Profitability for both VK and authors
+## Цель проекта
+Выявление:
+- Ключевых категорий с наибольшим контентным потенциалом
+- Форматов (пост/клип) с наилучшей производительностью
+- Рентабельности как для VK, так и для авторов
 
-The script computes metrics and outputs ranked categories.
+Скрипт вычисляет метрики и выводит ранжированные категории.
 
-## Computed Metrics
-- CTR (click-through rate)
-- CVR (conversion to completed order)
-- GMV per view
-- Reward per view
-- Engagement rate
-- Cancel rate
-- GMV per click
-- Time to first order
+## Рассчитываемые метрики
+- CTR (показатель кликабельности)
+- CVR (конверсия в завершенный заказ)
+- GMV на просмотр
+- Вознаграждение на просмотр
+- Уровень вовлеченности
+- Уровень отказа
+- GMV на клик
+- Время до первого заказа
 
-All metrics are aggregated on **category × placement_format**.
+Все метрики агрегируются по **категориям × форматам размещения**.
 
-## Weight Model (from strategy analysis)
-The final score uses weights aligned with content-focused strategy:
-- CTR — 0.35
-- CVR — 0.25
-- GMV per view — 0.25
-- Reward per view — 0.15
-
-## Flexible Column Matching
-If uploaded CSVs use nonstandard names (e.g., `impressions` instead of `views`), the script automatically detects them using alias mapping.
+## Весовая модель (из анализа стратегии)
+Итоговый балл использует веса, соответствующие контент-ориентированной стратегии:
+- CTR — 0,35
+- CVR — 0,25
+- GMV за просмотр — 0,25
+- Вознаграждение за просмотр — 0,15
+- 
+## Гибкое сопоставление столбцов
+Если загружаемые CSV-файлы используют нестандартные названия (например, `impressions` вместо `views`), скрипт автоматически определяет их с помощью сопоставления псевдонимов.
 
 ## How to Run
 ```
@@ -85,21 +85,19 @@ pip install -r requirements.txt
 python main.py
 ```
 
-Optional custom weights:
+Опциональные пользовательские веса:
 ```
 python main.py --weights 0.4 0.3 0.2 0.1
 ```
 
-## Output Files
-Stored in the `results/` directory:
-- **content_potential_by_category_format.csv** – final ranking
-- **metrics_full.csv** – all metrics per placement
+## Выходные файлы
+Сохраняются в директорию `results/`:
+- **content_potential_by_category_format.csv** – финальное ранжирование
+- **metrics_full.csv** – все метрики по размещениям
 
-## Notes
-- Missing values are automatically filled.
-- All datetime columns are parsed when present.
-- The analysis is fully reproducible.
-
-## Support
-If needed, additional files or modular separation (`src/` structure) can be added.
+## Примечания
+- Отсутствующие значения автоматически заполняются.
+- Все столбцы с датами парсятся при их наличии.
+- Анализ полностью воспроизводим.
+- При необходимости могут быть добавлены дополнительные файлы или модульная структура (папка src/).
 
