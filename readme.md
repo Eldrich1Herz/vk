@@ -49,7 +49,7 @@ project/
 - is_published
 - published_at
 
-## 🧠 Purpose
+## Purpose
 Identify:
 - Key categories with the highest content potential
 - Formats (post/clip) with the best performance
@@ -76,10 +76,10 @@ The final score uses weights aligned with content-focused strategy:
 - GMV per view — 0.25
 - Reward per view — 0.15
 
-## 🔄 Flexible Column Matching
+## Flexible Column Matching
 If uploaded CSVs use nonstandard names (e.g., `impressions` instead of `views`), the script automatically detects them using alias mapping.
 
-## ▶️ How to Run
+## How to Run
 ```
 pip install -r requirements.txt
 python main.py
@@ -90,16 +90,16 @@ Optional custom weights:
 python main.py --weights 0.4 0.3 0.2 0.1
 ```
 
-## 📤 Output Files
+## Output Files
 Stored in the `results/` directory:
 - **content_potential_by_category_format.csv** – final ranking
 - **metrics_full.csv** – all metrics per placement
 
-## 📝 Notes
+## Notes
 - Missing values are automatically filled.
 - All datetime columns are parsed when present.
 - The analysis is fully reproducible.
 
-## 📬 Support
+## Support
 If needed, additional files or modular separation (`src/` structure) can be added.
 
